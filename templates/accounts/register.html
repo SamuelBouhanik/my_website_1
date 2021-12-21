@@ -1,0 +1,56 @@
+{%extends 'base/base.html'%}
+{% load static %}
+{%block css%}
+<link rel="stylesheet" href="{% static 'css/login.css'%}">
+
+{%endblock%}
+
+{%block content%}
+
+
+
+	<section class="ftco-section" style=" width:100vw ; height:100vh">
+		<div class="container" >
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Have an account?</h3>
+		      	<form action="{% url 'register' %}" class="signin-form" method="post">
+		      		{% csrf_token %}
+					<div class="form-group">
+		      			<input type="text" name = "username" class="form-control" placeholder="Username" required>
+		      		</div>
+	            <div class="form-group">
+	              <input id="password-field" name = "password" type="password" class="form-control" placeholder="Password" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+				 <div class="form-group">
+	              <input id="password-field" name = "password2" type="password" class="form-control" placeholder="Password2" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">register</button>
+	            </div>
+	          </form>
+		      </div>
+				</div>
+			</div>
+		</div>
+		{%include "base/alert.html"%}
+	</section>
+
+{%endblock%}
+
+
+
+{%block js%}
+ <script src="{% static 'js/login.js' %}"></script>
+{%endblock%}
+
+
+

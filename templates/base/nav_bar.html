@@ -1,0 +1,51 @@
+{% load static%}
+<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div id="logo">
+        <a href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!--<h1><a href="index.html">Regna</a></h1>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+<!--          active == bare verte -->
+
+            {% if '/' == request.path %}
+           <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          {% else %}
+           <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+          {% endif %}
+
+            {% if '/livre_dor/livre' == request.path %}
+           <li><a class="nav-link scrollto active" href="{% url 'livre' %}">livre d'or</a></li>
+          {% else %}
+           <li><a class="nav-link scrollto" href="{% url 'livre' %}">livre d'or</a></li>
+          {% endif %}
+
+            {% if '/info' == request.path %}
+           <li><a class="nav-link scrollto active" href="{% url 'info' %}">nous contacter</a></li>
+          {% else %}
+           <li><a class="nav-link scrollto" href="{% url 'info' %}">nous contacter</a></li>
+          {% endif %}
+
+
+            {% if '/responces/reponces' == request.path %}
+           <li><a class="nav-link scrollto active" href="{% url 'reponces' %}">rsvp</a></li>
+          {% else %}
+           <li><a class="nav-link scrollto " href="{% url 'reponces' %}">rsvp</a></li>
+          {% endif %}
+
+
+            {%if user.is_authenticated %}
+             <li><a class="nav-link scrollto" href="{%url 'logout'%}">logout</a></li> hello {{user}}
+            {% else %}
+          <li><a class="nav-link scrollto" href="{%url 'login'%}">login</a></li>
+          <li><a class="nav-link scrollto" href="{%url 'register'%}">register</a></li>
+            {%endif%}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header>
