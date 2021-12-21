@@ -30,6 +30,6 @@ def display_livre_form(request):
             curr = form.save(commit=False)
             curr.user = request.user
             curr.save()
-            return redirect('http://127.0.0.1:8000/livre_dor/livre')
+            return redirect('https://radiant-beach-79214.herokuapp.com/livre_dor/livre?page=1')
 
     return render(request,'livre_dor/livre_form.html')
